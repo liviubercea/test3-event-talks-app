@@ -1,0 +1,83 @@
+[
+  {
+    "title": "Talk 1: The Future of JavaScript",
+    "speakers": [
+      "Speaker 1"
+    ],
+    "categories": [
+      "Category 1"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 1. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "10:00 AM",
+    "endTime": "11:00 AM"
+  },
+  {
+    "title": "Talk 2: The Future of JavaScript",
+    "speakers": [
+      "Speaker 2a",
+      "Speaker 2b"
+    ],
+    "categories": [
+      "Category 2"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 2. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "11:10 AM",
+    "endTime": "12:10 PM"
+  },
+  {
+    "title": "Talk 3: The Future of JavaScript",
+    "speakers": [
+      "Speaker 3"
+    ],
+    "categories": [
+      "Category 3"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 3. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "12:20 PM",
+    "endTime": "01:20 PM"
+  },
+  {
+    "title": "Talk 4: The Future of JavaScript",
+    "speakers": [
+      "Speaker 4a",
+      "Speaker 4b"
+    ],
+    "categories": [
+      "Category 4"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 4. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "02:30 PM",
+    "endTime": "03:30 PM"
+  },
+  {
+    "title": "Talk 5: The Future of JavaScript",
+    "speakers": [
+      "Speaker 5"
+    ],
+    "categories": [
+      "Category 5"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 5. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "03:40 PM",
+    "endTime": "04:40 PM"
+  },
+  {
+    "title": "Talk 6: The Future of JavaScript",
+    "speakers": [
+      "Speaker 6a",
+      "Speaker 6b"
+    ],
+    "categories": [
+      "Category 6"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 6. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "04:50 PM",
+    "endTime": "05:50 PM"
+  }
+]

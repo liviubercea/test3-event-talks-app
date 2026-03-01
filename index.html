@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Talks Conference</title>
+  <style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+#search {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.schedule-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.talk {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.talk h2 {
+  margin-top: 0;
+}
+
+.talk .time {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.talk .speakers {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.talk .categories {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.talk .category {
+  background-color: #eee;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+</style>
+<script>const talksData = [
+  {
+    "title": "Talk 1: The Future of JavaScript",
+    "speakers": [
+      "Speaker 1"
+    ],
+    "categories": [
+      "Category 1"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 1. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "10:00 AM",
+    "endTime": "11:00 AM"
+  },
+  {
+    "title": "Talk 2: The Future of JavaScript",
+    "speakers": [
+      "Speaker 2a",
+      "Speaker 2b"
+    ],
+    "categories": [
+      "Category 2"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 2. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "11:10 AM",
+    "endTime": "12:10 PM"
+  },
+  {
+    "title": "Talk 3: The Future of JavaScript",
+    "speakers": [
+      "Speaker 3"
+    ],
+    "categories": [
+      "Category 3"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 3. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "12:20 PM",
+    "endTime": "01:20 PM"
+  },
+  {
+    "title": "Talk 4: The Future of JavaScript",
+    "speakers": [
+      "Speaker 4a",
+      "Speaker 4b"
+    ],
+    "categories": [
+      "Category 4"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 4. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "02:30 PM",
+    "endTime": "03:30 PM"
+  },
+  {
+    "title": "Talk 5: The Future of JavaScript",
+    "speakers": [
+      "Speaker 5"
+    ],
+    "categories": [
+      "Category 5"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 5. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "03:40 PM",
+    "endTime": "04:40 PM"
+  },
+  {
+    "title": "Talk 6: The Future of JavaScript",
+    "speakers": [
+      "Speaker 6a",
+      "Speaker 6b"
+    ],
+    "categories": [
+      "Category 6"
+    ],
+    "duration": 60,
+    "description": "This is a description for Talk 6. It will cover exciting new developments in the world of JavaScript.",
+    "startTime": "04:50 PM",
+    "endTime": "05:50 PM"
+  }
+];</script></head>
+<body>
+  <header>
+    <h1>Tech Talks Conference</h1>
+    <p>A one-day event filled with technical talks.</p>
+  </header>
+  <main>
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search by category...">
+    </div>
+    <div id="schedule" class="schedule-container">
+      <!-- Talks will be dynamically loaded here -->
+    </div>
+  </main>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const scheduleContainer = document.getElementById('schedule');
+  const searchInput = document.getElementById('search');
+  let talks = [];
+
+  // Fetch talk data
+  Promise.resolve(new Response(JSON.stringify(talksData)))
+    .then(response => response.json())
+    .then(data => {
+      talks = data;
+      renderSchedule(talks);
+    });
+
+  // Render the schedule
+  function renderSchedule(talksToRender) {
+    scheduleContainer.innerHTML = '';
+    talksToRender.forEach(talk => {
+      const talkElement = document.createElement('div');
+      talkElement.classList.add('talk');
+      talkElement.innerHTML = `
+        <h2>${talk.title}</h2>
+        <div class="time">${talk.startTime} - ${talk.endTime}</div>
+        <div class="speakers">Speakers: ${talk.speakers.join(', ')}</div>
+        <p>${talk.description}</p>
+        <div class="categories">
+          ${talk.categories.map(category => `<span class="category">${category}</span>`).join('')}
+        </div>
+      `;
+      scheduleContainer.appendChild(talkElement);
+    });
+  }
+
+  // Filter talks based on search input
+  searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredTalks = talks.filter(talk => {
+      return talk.categories.some(category => category.toLowerCase().includes(searchTerm));
+    });
+    renderSchedule(filteredTalks);
+  });
+});
+</script>
+</body>
+</html>
